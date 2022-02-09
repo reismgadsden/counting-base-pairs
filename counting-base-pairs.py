@@ -1,3 +1,12 @@
+"""
+Program used to count base pairs given a RNA sequence
+and a secondary structure.
+
+author: Reis Gadsden
+version: 09/02/2022
+class: CS-5531-101 @ Appalachian State University
+instructor: Dr. Mohammad Mohebbi
+"""
 sequence_dict = {
     "AU": 0,
     "CG" : 0,
