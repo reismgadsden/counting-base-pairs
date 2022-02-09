@@ -19,8 +19,9 @@ def main():
     if not get_indexes(sequence, secondary_struct):
         print("Secondary Structure is not Properly Formatted.")
     else:
+        print("Base pair counts")
         for x in sequence_dict.keys():
-            print(x + ": " +str(sequence_dict[x]))
+            print("\t- " + x + ": " +str(sequence_dict[x]))
 
 
 def get_indexes(sequence, second_struct) -> bool:
