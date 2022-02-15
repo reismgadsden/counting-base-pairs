@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../../../PersonalProjects/bee-colony-loss-project/.idea/bee-colony-loss-project.iml" filepath="$PROJECT_DIR$/../../../../PersonalProjects/bee-colony-loss-project/.idea/bee-colony-loss-project.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/counting-base-pairs.iml" filepath="$PROJECT_DIR$/.idea/counting-base-pairs.iml" />
     </modules>
   </component>
