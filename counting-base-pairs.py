@@ -3,12 +3,13 @@ Program used to count base pairs given a RNA sequence
 and a secondary structure.
 
 author: Reis Gadsden
-version: 09/02/2022
+version: 18/02/2022
 class: CS-5531-101 @ Appalachian State University
 instructor: Dr. Mohammad Mohebbi
 """
 import os
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MultipleLocator
 
 total_sequence_dict = {
     "AT": 0,
@@ -75,6 +76,11 @@ def get_indexes(sequence, second_struct, single_dict=None) -> bool:
 def count_sequences(open_index, close_index, sequence, single_dict=None) -> None:
     open_seq_char = sequence[open_index].upper()
     close_seq_char = sequence[close_index].upper()
+
+    ## REMOVE
+    if open_seq_char == 'T' or close_seq_char == 'T':
+        return None
+
     if ord(open_seq_char) > ord(close_seq_char):
         temp = close_seq_char
         close_seq_char = open_seq_char
@@ -126,12 +132,19 @@ def plot_dict(dict) -> None:
         if x != "Total":
             new_dict[x] = (new_dict[x]/new_dict["Total"]) * 100
     del dict["Total"]
+    del dict["AT"] ## REMOVE
 
     pairs = list(new_dict.keys())
     counts = list(new_dict.values())
 
     plt.bar(range(len(new_dict)), counts, tick_label=pairs)
     plt.ylim([0, 100])
+    plt.minorticks_on()
+    plt.locator_params(axis='y', nbins=10)
+    plt.title("Distibution of Base Pairs in /real_sec_structures/")
+    plt.xlabel("Base Pairs")
+    plt.ylabel("% of Total Pairs")
+    plt.savefig("counting-base-pairs-figure.png")
     plt.show()
 
 
