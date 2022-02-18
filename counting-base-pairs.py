@@ -1,5 +1,5 @@
 """
-Program used to count base pairs given a RNA sequence
+Program used to count base pairs given an RNA sequence
 and a secondary structure.
 
 author: Reis Gadsden
@@ -9,7 +9,6 @@ instructor: Dr. Mohammad Mohebbi
 """
 import os
 import matplotlib.pyplot as plt
-from matplotlib.ticker import MultipleLocator
 
 total_sequence_dict = {
     "AT": 0,
@@ -125,14 +124,14 @@ def read_all_files() -> list:
     return container
 
 
-def plot_dict(dict) -> None:
-    new_dict = dict
+def plot_dict(target_dict) -> None:
+    new_dict = target_dict
 
     for x in new_dict:
         if x != "Total":
             new_dict[x] = (new_dict[x]/new_dict["Total"]) * 100
-    del dict["Total"]
-    del dict["AT"] ## REMOVE
+    del target_dict["Total"]
+    del target_dict["AT"] ## REMOVE
 
     pairs = list(new_dict.keys())
     counts = list(new_dict.values())
@@ -141,7 +140,7 @@ def plot_dict(dict) -> None:
     plt.ylim([0, 100])
     plt.minorticks_on()
     plt.locator_params(axis='y', nbins=10)
-    plt.title("Distibution of Base Pairs in /real_sec_structures/")
+    plt.title("Distribution of Base Pairs in /real_sec_structures/")
     plt.xlabel("Base Pairs")
     plt.ylabel("% of Total Pairs")
     plt.savefig("counting-base-pairs-figure.png")
